@@ -25,8 +25,16 @@ module.exports = {
 console.log("TEST CASE 1");
 getStudentsAPI();
 
-console.log("TEST CASE 1");
-addStudentsAPI({ firstName: "Light", lastName: "Yagami", email: "light.yagami@gmail.com" });
+console.log("TEST CASE 2");
+addStudentsAPI({ 
+    firstName: "Light", 
+    lastName: "Yagami", 
+    email: "light.yagami@gmail.com" 
+});
+
+console.log("TEST CASE 3");
+getStudentsAPI();
+
 
 
 
