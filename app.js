@@ -27,15 +27,28 @@ const renderTable = (localStudents) => {
 
 studentForm.addEventListener('submit', (event) => {
     event.preventDefault();
+
+    //just clears input everytime
+    const firstName = document.getElementById('firstName').value.trim();
+    const lastName = document.getElementById('lastName').value.trim();
+    const email = document.getElementById('email').value.trim();
+
+    if (!firstName || !lastName || !email) {
+        alert('please fill out all of the input');
+        return;
+    }
+
     const StudentData = {
-        firstName: document.getElementById('firstName').value,
-        lastName: document.getElementById('lastName').value,
-        email: document.getElementById('email').value
+        firstName,
+        lastName,
+        email
     };
+
     // localStudents.push(StudentData);
     api.addStudentsAPI(StudentData);
     console.log("student added to local array:", StudentData);
     renderTable(localStudents);
+    studentForm.reset();
 });
 
 // renderTable(localStudents);
