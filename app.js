@@ -1,7 +1,7 @@
 // import { getStudentsApi, addStudentsAPI } from './api.js';
 import * as api from './api.js';
 
-const localStudents = [];
+var localStudents = [];
 const tableBody = document.getElementById('studentTableBody');
 
 api.getStudentsAPI().forEach(student => {
@@ -27,14 +27,23 @@ const renderTable = (localStudents) => {
 
 studentForm.addEventListener('submit', (event) => {
     event.preventDefault();
-    const newStudentData = {
+    const StudentData = {
         firstName: document.getElementById('firstName').value,
         lastName: document.getElementById('lastName').value,
         email: document.getElementById('email').value
     };
-    localStudents.push(newStudentData);
-    console.log("New student added to local array:", newStudentData);
+    // localStudents.push(StudentData);
+    api.addStudentsAPI(StudentData);
+    console.log("student added to local array:", StudentData);
     renderTable(localStudents);
 });
 
-renderTable(localStudents);
+// renderTable(localStudents);
+
+const initApp = () => {
+    console.log("APP INIT");
+    localStudents = api.getStudentsAPI();
+    renderTable(localStudents);
+}
+
+initApp();
