@@ -12,6 +12,13 @@ console.log("Local Students:", localStudents);
 
 const renderTable = (localStudents) => {
     tableBody.innerHTML = '';
+
+    //test case 1
+    if (!localStudents || localStudents.length === 0) {
+        tableBody.innerHTML = '<tr><td colspan="4">field is empty</td></tr>';
+        return;
+    }
+
     localStudents.forEach((student, index) => {
         console.log(`Rendering student: ${student.firstName} ${student.lastName} (${student.email})`);
         const row = document.createElement('tr');
