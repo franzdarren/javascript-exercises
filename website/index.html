@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button Logger</title>
+    <style>
+        :root{
+            --bg1: #0f172a;
+            --bg2: #0f3b6e;
+            --card: rgba(255,255,255,0.06);
+            --glass: rgba(255,255,255,0.08);
+            --accent: #7c3aed;
+            --accent-2: #06b6d4;
+            --muted: rgba(255,255,255,0.7);
+        }
+        *{box-sizing:border-box}
+        html,body{height:100%;margin:0}
+        body{
+            font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+            color: white;
+            background: radial-gradient(1200px 600px at 10% 10%, rgba(124,58,237,0.12), transparent 10%),
+                        linear-gradient(135deg,var(--bg1),var(--bg2));
+            -webkit-font-smoothing:antialiased;
+            display:flex;align-items:center;justify-content:center;
+            padding:48px;
+        }
+        .card{
+            width:100%;max-width:720px;padding:36px;border-radius:16px;
+            background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+            box-shadow: 0 10px 30px rgba(2,6,23,0.6), inset 0 1px 0 rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.04);
+            backdrop-filter: blur(6px) saturate(120%);
+        }
+        header{display:flex;align-items:center;gap:16px}
+        .logo{
+            width:56px;height:56px;border-radius:12px;
+            background: linear-gradient(180deg,var(--accent),var(--accent-2));
+            display:flex;align-items:center;justify-content:center;font-weight:700;color:white;
+            box-shadow:0 6px 18px rgba(12,10,30,0.6);
+        }
+        h1{margin:0;font-size:1.4rem}
+        p.lead{margin:10px 0 20px;color:var(--muted)}
+        .controls{display:flex;gap:12px;align-items:center}
+        button#logButton{
+            appearance:none;border:0;padding:12px 18px;border-radius:10px;
+            background: linear-gradient(90deg,var(--accent),var(--accent-2));
+            color:white;font-weight:600;cursor:pointer;font-size:1rem;
+            box-shadow: 0 6px 18px rgba(124,58,237,0.18), 0 2px 6px rgba(3,7,18,0.6);
+            transition: transform .14s ease, box-shadow .14s ease, opacity .12s ease;
+        }
+        button#logButton:active{transform:translateY(1px) scale(.996)}
+        button#logButton:hover{box-shadow: 0 10px 28px rgba(7,16,46,0.6)}
+        .meta{display:flex;gap:12px;align-items:center;color:var(--muted);font-size:.9rem}
+        footer{margin-top:20px;color:var(--muted);font-size:.85rem}
+        @media (max-width:520px){
+            .card{padding:20px;border-radius:12px}
+            header{gap:12px}
+            .logo{width:48px;height:48px}
+        }
+    </style>
+</head>
+<body>
+    <main class="card" role="main">
+        <header>
+            <div class="logo">BL</div>
+            <div>
+                <h1>Button Logger</h1>
+                <div class="meta">A tiny demo that logs a message when you click the button.</div>
+            </div>
+        </header>
+
+        <p class="lead">Click the button below — the console will show a log message (open DevTools to see it).</p>
+
+        <div class="controls">
+            <button id="logButton">Click me</button>
+        </div>
+
+        <footer>Made with care — responsive, accessible, and styled inline.</footer>
+    </main>
+
+    <script src="index.js"></script>
+</body>
+</html>
